@@ -3,19 +3,19 @@ See http://en.wikipedia.org/wiki/Mastermind_(board_game) for game info
 or type 'info' at any prompt during the game 
 """
 
-import MastermindUI
-import MastermindGameState
+import mastermindUI
+import mastermindGameState
 
 def runGame():
     play_again = True
     while play_again:
         game_over = False
 
-        game_UI = MastermindUI.MastermindUI()
+        game_UI = mastermindUI.MastermindUI()
         setColors(game_UI)
         game_UI.generateSolution()
         solution_pegs = game_UI.solution_pegs
-        game_state = MastermindGameState.MastermindGameState(solution_pegs)
+        game_state = mastermindGameState.MastermindGameState(solution_pegs)
         max_guesses = game_state.max_guesses
         
         while not game_over:
