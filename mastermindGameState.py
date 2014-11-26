@@ -1,3 +1,8 @@
+"""For a given mastermind game, keeps track of current guess number,
+current guess, history of previous guesses and results, and also
+provides methods to evaluate the current guess against the solution.
+"""
+
 class MastermindGameState:
 
     def __init__(self, solution_pegs):
