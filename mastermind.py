@@ -29,17 +29,17 @@ def setColors(game_UI):
     game_UI.setColorOptions()
 
 def executeOneTurn(game_UI, game_state):
-        game_UI.userInputsGuess()
-        guess_pegs = game_UI.guess_pegs
-        game_state.newGuess(guess_pegs)
-        game_state.assignResultPegs()
-        game_state.printResult()          
+    game_UI.userInputsGuess()
+    guess_pegs = game_UI.guess_pegs
+    game_state.newGuess(guess_pegs)
+    game_state.assignResultPegs()
+    game_state.printResult()          
 
-        game_over, win = game_state.evaluateGameOver()
+    game_over, win = game_state.evaluateGameOver()
 
-        game_state.prepareForNewGuess()
-        
-        return game_over, win
+    game_state.prepareForNewGuess()
+    
+    return game_over, win
 
 def gameEndMessage(win, solution_pegs):
     if win:
