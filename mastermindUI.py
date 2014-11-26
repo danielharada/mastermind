@@ -1,3 +1,5 @@
+"""Provides methods for getting user input for Mastermind game."""
+
 import random
 
 class MastermindUI:
@@ -55,18 +57,22 @@ class MastermindUI:
 
     def userInputsGuess(self):
         self.keywords['help'] = 'help with guesses'
-        while True:
+        valid_guess = False
+        while not valid_guess:
             user_input = input('Please enter your guess: ').lower()
             if not self.checkForKeywords(user_input):
                 user_guess = tuple(user_input.split())
-                if not (set(user_guess) < set(self.color_options)):
-                    print('Guess needs to only include colors from: ', ', '.join(self.color_options))        
-                elif (len(user_guess) != 4):
-                    print('Please enter a 4 color guess, each color separated by a space')
-                else:
-                    break
+                valid_guess = validateGuess(user_guess)
 
         self.guess_pegs = user_guess
+    
+    def validateGuess(user_guess):
+        if not (set(user_guess) < set(self.color_options)):
+            print('Guess needs to only include colors from: ', ', '.join(self.color_options))        
+        elif (len(user_guess) != 4):
+            print('Please enter a 4 color guess, each color separated by a space')
+        else:
+            return True
 
     def userDecidesPlayAgain(self):
         play_again_TF = {'yes' : True, 'no' : False}
